@@ -1,0 +1,259 @@
+@font-face {
+font-family: 'OnulDamso';
+src: url('OnulDamso-Bold.otf') format('opentype');
+font-weight: normal;
+font-style: normal;
+}
+
+body {
+margin: 0;
+height: 100vh;
+overflow: hidden;
+}
+
+#background-video {
+position: fixed;
+top: 50%;
+left: 63%;
+transform: translate(-50%, -50%);
+width: 1650px;
+height: 850px;
+z-index: -1;
+object-fit: cover;
+}
+
+#overlay-text {
+position: fixed;
+top: 9%;
+left: 4%;
+color: black;
+font-size: 19px;
+font-weight: 800;
+line-height: 1.7;
+z-index: 0;
+font-family: 'OnulDamso', sans-serif;
+}
+
+#remaining-number {
+display: inline-block;
+}
+
+#order-button {
+position: absolute;
+z-index: 20;
+top: 128px;
+left: 1550px;
+width: 450px;
+height: auto;
+transform: translate(-50%, -50%);
+cursor: pointer;
+z-index: 100;
+}
+
+#order-button:hover {
+filter: invert(100%);
+}
+
+#information-button {
+position: absolute;
+z-index: 20;
+top: 132px;
+left: 1700px;
+width: 125px;
+height: auto;
+transform: translate(-50%, -50%);
+cursor: pointer;
+z-index: 100;
+}
+
+#information-button:hover {
+filter: invert(100%);
+}
+
+#info-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent; 
+    z-index: 999; /* 다른 요소 위에 표시 */
+    display: none; /* 초기에는 숨김 */
+}
+
+#info-modal-overlay.show {
+    display: flex; /* JavaScript로 show 클래스를 추가하여 표시 */
+}
+
+#info-image {
+    position: absolute; 
+    top: 160px; 
+    left: 1365px;
+    max-width: 60%; 
+    max-height: 60%;
+    height: auto;
+    z-index: 1000;
+}
+
+#error-banner {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 40px;
+background-color: black;
+z-index: 500;
+overflow: hidden;
+opacity: 0;
+transition: opacity 0.01s ease-in-out;
+display: flex;
+align-items: center;
+}
+
+#error-banner.show {
+opacity: 1;
+}
+
+#error-message {
+color: white;
+font-size: 17px;
+font-family: 'OnulDamso', sans-serif;
+white-space: nowrap;
+margin: 0;
+padding: 0;
+transform: translateX(100%);
+display: inline-block;
+}
+
+#error-message span {
+display: inline-block;
+padding: 0 20px;
+}
+
+@keyframes scroll-left {
+from {
+transform: translateX(35%);
+}
+to {
+transform: translateX(-100%);
+}
+}
+
+#error-message.active {
+animation: scroll-left 50s linear infinite;
+}
+
+@keyframes fade-blink {
+0% { opacity: 0; }
+25% { opacity: 1; }
+50% { opacity: 0; }
+75% { opacity: 1; }
+100% { opacity: 0; }
+}
+
+.distraction-image {
+position: fixed;
+width: 130px;
+height: auto;
+z-index: 400;
+opacity: 0;
+pointer-events: none;
+}
+
+.distraction-image.show {
+animation: fade-blink 1s ease-out forwards;
+}
+
+.distraction-image.visible {
+opacity: 1;
+}
+
+#distraction-image-1 {
+top: 50vh;
+left: 20vw;
+}
+
+#distraction-image-2 {
+top: 30vh;
+right: 10vw;
+}
+
+#distraction-image-3 {
+bottom: 10vh;
+left: 7vw;
+}
+
+#distraction-image-4 {
+bottom: 25vh;
+right: 25vw;
+}
+
+#distraction-image-5 {
+top: 15vh;
+left: 40vw;
+}
+
+#distraction-image-6 {
+top: 75vh;
+left: 45vw;
+}
+
+.single-sub-image {
+position: fixed;
+height: auto;
+z-index: 500;
+opacity: 0;
+transition: opacity 0.3s ease-in-out;
+pointer-events: none;
+}
+
+.single-sub-image.active {
+opacity: 1;
+pointer-events: auto;
+}
+
+#single-sub-image-1 {
+top: 28vh;
+left: 25.3vw;
+width: 450px;
+}
+
+#single-sub-image-2 {
+top: 20vh;
+right: 14.7vw;
+width: 450px;
+}
+
+#single-sub-image-3 {
+bottom: 1vh;
+left: 12.7vw;
+width: 450px;
+}
+
+#single-sub-image-4 {
+bottom: 1vh;
+right: 1.7vw;
+width: 450px;
+}
+
+#single-sub-image-5 {
+top: 15.7vh;
+left: 44vw;
+width: 500px;
+}
+
+#single-sub-image-6 {
+top: 28vh;
+left: 20.8vw;
+width: 480px;
+}
+
+@keyframes shake {
+0%, 100% { transform: translateX(0); }
+20%, 60% { transform: translateX(-3px); }
+40%, 80% { transform: translateX(3px); }
+}
+
+#remaining-number.shaking {
+animation: shake 0.4s ease-in-out;
+}
